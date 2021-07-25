@@ -3,27 +3,30 @@ import java.util.*;
 
 import static java.lang.Math.*;
 
-public class Crosswordsolving {
+public class BearandFindingCriminals {
     //    public class Main {
 
     public static void main(String[] args) throws IOException {
-        int n=sc.nextInt();
-        int m=sc.nextInt();
-        char arr[]=sc.nextString().toCharArray();
-        char brr[]=sc.nextString().toCharArray();
-        ArrayList<Integer> store=new ArrayList<>();
-        ArrayList<Integer> temp=new ArrayList<>();
-        for (int i = 0; i < m-n; i++) {
-            for (int j = 0; j < n; j++) {
-                if(arr[j]!=brr[i+j]){
-                    temp.add(j+1);
-                }
-            }
-            if(store.size()>temp.size()){
-                store=temp;
-
+        int n = sc.nextInt(), at = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        int count = 0;
+        at -= 1;
+        if (arr[at] == 1) {
+            count++;
+        }
+        for (int i = 1; i < n; i++) {
+            if (0 <= at - i && at + i < n && (arr[at + i] & arr[at - i]) == 1) {
+                count+=2;
+            } else if (0 <= at - i && arr[at - i] == 1 && !(at + i < n)) {
+                count++;
+            } else if (at + i < n && arr[at + i] == 1 && !(at - i >= 0)) {
+                count++;
             }
         }
+        System.out.println(count);
 
         close.close();
     }
@@ -226,5 +229,5 @@ public class Crosswordsolving {
 
     static Print out = new Print();
     static BufferedWriter close = new BufferedWriter(new OutputStreamWriter(System.out));
-    // 5:41 PM Fri 06 2021 25/06/2021
+    // 9:22 AM Sun 07 2021 25/07/2021
 }

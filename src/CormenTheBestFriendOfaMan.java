@@ -3,26 +3,27 @@ import java.util.*;
 
 import static java.lang.Math.*;
 
-public class Crosswordsolving {
+public class CormenTheBestFriendOfaMan {
     //    public class Main {
 
     public static void main(String[] args) throws IOException {
-        int n=sc.nextInt();
-        int m=sc.nextInt();
-        char arr[]=sc.nextString().toCharArray();
-        char brr[]=sc.nextString().toCharArray();
-        ArrayList<Integer> store=new ArrayList<>();
-        ArrayList<Integer> temp=new ArrayList<>();
-        for (int i = 0; i < m-n; i++) {
-            for (int j = 0; j < n; j++) {
-                if(arr[j]!=brr[i+j]){
-                    temp.add(j+1);
-                }
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        int k = sc.nextInt();
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();
+        }
+        int additional = 0;
+        for (int i = 0; i < arr.length - 1; i++) {
+            int added = arr[i] + arr[i + 1];
+            if (k > added) {
+                arr[i + 1] += k - added;
+                additional += k - added;
             }
-            if(store.size()>temp.size()){
-                store=temp;
-
-            }
+        }
+        out.println(additional + "");
+        for (int i = 0; i < n; i++) {
+            out.print(arr[i] + " ");
         }
 
         close.close();
@@ -226,5 +227,5 @@ public class Crosswordsolving {
 
     static Print out = new Print();
     static BufferedWriter close = new BufferedWriter(new OutputStreamWriter(System.out));
-    // 5:41 PM Fri 06 2021 25/06/2021
+    // 7:32 PM Sat 07 2021 24/07/2021
 }

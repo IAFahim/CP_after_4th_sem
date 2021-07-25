@@ -3,27 +3,12 @@ import java.util.*;
 
 import static java.lang.Math.*;
 
-public class Crosswordsolving {
+public class LovelyPalindromes {
     //    public class Main {
 
     public static void main(String[] args) throws IOException {
-        int n=sc.nextInt();
-        int m=sc.nextInt();
-        char arr[]=sc.nextString().toCharArray();
-        char brr[]=sc.nextString().toCharArray();
-        ArrayList<Integer> store=new ArrayList<>();
-        ArrayList<Integer> temp=new ArrayList<>();
-        for (int i = 0; i < m-n; i++) {
-            for (int j = 0; j < n; j++) {
-                if(arr[j]!=brr[i+j]){
-                    temp.add(j+1);
-                }
-            }
-            if(store.size()>temp.size()){
-                store=temp;
-
-            }
-        }
+        String str=sc.nextString();
+        out.println(str+""+new StringBuilder(str).reverse());
 
         close.close();
     }
@@ -226,5 +211,5 @@ public class Crosswordsolving {
 
     static Print out = new Print();
     static BufferedWriter close = new BufferedWriter(new OutputStreamWriter(System.out));
-    // 5:41 PM Fri 06 2021 25/06/2021
+    // 8:15 PM Sat 07 2021 24/07/2021
 }

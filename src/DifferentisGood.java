@@ -3,27 +3,24 @@ import java.util.*;
 
 import static java.lang.Math.*;
 
-public class Crosswordsolving {
+public class DifferentisGood {
     //    public class Main {
 
     public static void main(String[] args) throws IOException {
-        int n=sc.nextInt();
-        int m=sc.nextInt();
-        char arr[]=sc.nextString().toCharArray();
-        char brr[]=sc.nextString().toCharArray();
-        ArrayList<Integer> store=new ArrayList<>();
-        ArrayList<Integer> temp=new ArrayList<>();
-        for (int i = 0; i < m-n; i++) {
-            for (int j = 0; j < n; j++) {
-                if(arr[j]!=brr[i+j]){
-                    temp.add(j+1);
+        int n = sc.nextInt();
+        char arr[] = sc.nextString().toCharArray();
+        int at = 0,preI=0;
+        for (int i = 0; i < n; i++) {
+            preI=i;
+            for (int j = i + 1; j < n; j++) {
+                if (i < n && arr[i] == arr[j]) {
+                    at++;
+                    i++;
                 }
             }
-            if(store.size()>temp.size()){
-                store=temp;
-
-            }
+            i=preI+1;
         }
+        out.println(at+"");
 
         close.close();
     }
@@ -226,5 +223,5 @@ public class Crosswordsolving {
 
     static Print out = new Print();
     static BufferedWriter close = new BufferedWriter(new OutputStreamWriter(System.out));
-    // 5:41 PM Fri 06 2021 25/06/2021
+    // 9:56 AM Sun 07 2021 25/07/2021
 }
