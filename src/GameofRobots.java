@@ -3,26 +3,19 @@ import java.util.*;
 
 import static java.lang.Math.*;
 
-public class DifferentisGood {
+public class GameofRobots {
     //    public class Main {
 
     public static void main(String[] args) throws IOException {
-        int n = sc.nextInt();
-        char arr[] = sc.nextString().toCharArray();
-        int at = 0;
-        boolean visited[] = new boolean[128];
-        for (int i = 0; i < n; i++) {
-            if (!visited[arr[i]]) {
-                visited[arr[i]] = true;
-            } else if (visited[arr[i]]) {
-                at++;
-            }
+        int n=sc.nextInt(),k=sc.nextInt();
+        int arr[]=new int[n];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();
         }
-        if (n > 26) {
-            out.println("-1");
-        } else {
-            out.println(at + "");
+        for (int i = 1; i < k; i++) {
+            k-=i;
         }
+        out.println(arr[k-1]+"");
 
         close.close();
     }
@@ -225,5 +218,5 @@ public class DifferentisGood {
 
     static Print out = new Print();
     static BufferedWriter close = new BufferedWriter(new OutputStreamWriter(System.out));
-    // 9:56 AM Sun 07 2021 25/07/2021
+    // 9:09 PM Sun 07 2021 25/07/2021
 }
