@@ -15,3 +15,4 @@ public class CatYearsDogYears {
         System.out.println(Arrays.toString(humanYearsCatYearsDogYears(10)));
     }
 }
+
